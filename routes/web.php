@@ -1,5 +1,7 @@
 <?php
 
+// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/test', function () {
+//     $name = "castillo";
+//     return view('test', compact('name'));
+// });
+
+
+
+// Route::get('/admin',[AdminController::class, 'showAdmon' ]);
+// Route::get('/create',[AdminController::class, 'createAdmin' ]);
+// Route::get('/update',[AdminController::class, 'updateAdmin' ]);
+
+
+
+// Route::controller(AdminController::class)->group(function () {
+//     Route::get('/admin', 'showAdmon');
+//     Route::get('/create', 'createAdmin');
+//     Route::get('/update', 'updateAdmin');
+// });   
+
+
+
+Route::resource('/users', usersController::class);
