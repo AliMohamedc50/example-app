@@ -1,6 +1,8 @@
 <?php
 
 // use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,4 +41,10 @@ Route::get('/', function () {
 
 
 
-Route::resource('/users', usersController::class);
+// Route::resource('/users', usersController::class);
+Route::get('/blogs', [BlogController::class , 'index'])->name('blogs.index');
+Route::get('/blogs/create', [BlogController::class , 'create'])->name('blogs.create');
+Route::post('/blogs/store', [BlogController::class , 'store'])->name('blogs.store');
+Route::get('/blogs/edit/{id}', [BlogController::class , 'edit'])->name('blogs.edit');
+Route::post('/blogs/update/{id}', [BlogController::class , 'update'])->name('blogs.update');
+Route::get('/blogs/delete/{id}', [BlogController::class , 'delete'])->name('blogs.delete');
